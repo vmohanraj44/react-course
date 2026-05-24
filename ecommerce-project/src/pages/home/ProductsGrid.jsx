@@ -1,35 +1,8 @@
-import { useEffect, useState } from 'react';
-import { Header } from "../components/Header";
-import { formatMoney } from "../utils.money";
-import axios from 'axios';
-import "./HomePage.css";
+import { formatMoney } from "../../utils.money";
 
-export function HomePage({cart}) {
-  const [products, setProducts] = useState([]);
-
-
-useEffect(() => {
-  axios.get('/api/products')
-  .then((response) => {
-    setProducts(response.data);
-  });
-}, [])
-  //setProducts(productsData);
- /* fetch('http://localhost:3000/api/products')
-    .then((response) => response.json())
-    .then((response) => {
-      setProducts(response.data);
-    })
-    .catch((error) => {
-      console.error('Error fetching products:', error);
-    });*/
-
-  return (
-    <>
-      <Header cart = {cart} />
-
-      <div className="home-page">
-        <div className="products-grid">
+export function ProductsGrid( products ){
+    return(
+                <div className="products-grid">
           {products.map((product) => {
             return (
               <div key={product.id} className="product-container">
@@ -83,7 +56,5 @@ useEffect(() => {
             );
           })} 
         </div>
-      </div>
-    </>
-  );
+    );
 }

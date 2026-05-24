@@ -1,4 +1,4 @@
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header.jsx";
 import axios from "axios";
 import { useEffect, useState, Fragment } from "react";
 import { Link } from "react-router";
