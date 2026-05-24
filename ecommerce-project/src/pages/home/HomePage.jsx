@@ -7,13 +7,25 @@ import "./HomePage.css";
 export function HomePage({cart}) {
   const [products, setProducts] = useState([]);
 
+useEffect(() => {
+  const getHomeData = async () =>{
+   const response = await axios.get('/api/products');
+   setProducts(response.data);
+  };
 
+  getHomeData(); 
+
+}, []);
+
+/*
 useEffect(() => {
   axios.get('/api/products')
   .then((response) => {
     setProducts(response.data);
   });
-}, [])
+}, [])*/
+
+
   //setProducts(productsData);
  /* fetch('http://localhost:3000/api/products')
     .then((response) => response.json())
