@@ -6,7 +6,7 @@ import { CheckOutHeader } from "./CheckOutHeader";
 import { OrderSummary } from "./OrderSummary.jsx";
 import { PaymentSummary } from "./PaymentSummary.jsx";
 
-export function CheckOutPage({ cart }) {
+export function CheckOutPage({ cart, loadCart }) {
   const [deliveryOptions, setDeliveryOptions] = useState([]);
   const [paymentSummary, setPaymentSummary] = useState(null);
 
@@ -20,7 +20,7 @@ export function CheckOutPage({ cart }) {
     }
 
     fetchCheckOutData();
-  }, []);
+  }, [cart]);
 
   /*useEffect(() => {
     axios
@@ -43,7 +43,7 @@ export function CheckOutPage({ cart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-         <OrderSummary deliveryOptions = { deliveryOptions } cart = {cart } />
+         <OrderSummary deliveryOptions = { deliveryOptions } cart = {cart }  loadCart= {loadCart} />
 
           {paymentSummary && (
            <PaymentSummary paymentSummary = {paymentSummary} />
