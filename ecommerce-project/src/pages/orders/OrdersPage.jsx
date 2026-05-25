@@ -4,7 +4,7 @@ import { useEffect, useState, Fragment } from "react";
 import { Link } from "react-router";
 import "./OrdersPage.css";
 import dayjs from "dayjs";
-import { formatMoney } from "../utils.money.js";
+import { formatMoney } from "../../utils/money";
 
 export function OrdersPage({ cart }) {
   const [orders, setOrders] = useState([]);
